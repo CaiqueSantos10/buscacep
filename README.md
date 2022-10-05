@@ -1,6 +1,6 @@
-# buscacep
+projeto buscacep
 
-const { ALL } = require('dns');
+#const { ALL } = require('dns');
 var http = require('http');
 var qs = require('querystring');
 dados = {
@@ -8,7 +8,7 @@ dados = {
     "tipoCEP":"ALL",
     "semelhante":"N"
 }
-
+\\ Fazer a pergunta ( HttpRequest)
 var parqametros = {
     "method" : "POST",
     "hostname" : "www.buscacep.correios.com.br",
@@ -23,7 +23,7 @@ var req = http.request(parametros, function(httpResponse){
 })
 
 
-
+\\ Receber a resposta ( HttpResponse )
 
 var pedacos = []
 
@@ -32,7 +32,7 @@ httpResponse.on("data", function(pedaco){
 });
 
 httpResponse.on("end", function(){
-   
+    \\ Tratar a resposta
     var body = Buffer.concat(pedacos);
     var html = body.toString("latin1");
     var regularExpression = /(?:<td.*?>)(.*?)(?:<\/td>)/g
